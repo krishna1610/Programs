@@ -1,0 +1,173 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Expression</title>
+</head>
+
+<body>
+    <script>
+        // 7 - 24 / (8 * 4) + 6
+
+        let ques1 = 7 - 24 / (8 * 4) + 6;
+        console.log(ques1);
+        console.log("----------------");
+        //  let x = 8 * 4;
+        //  let y = 24 / x;
+        //  let z = 7 - y;
+        //  let result = z + 6;
+        //  console.log(result);
+
+        //1) Write a program to convert degree to radian.
+        const pi = 3.14;
+
+        let degreeTem = 34;
+        let radianTem = (degreeTem * pi) / 180;
+        console.log(radianTem);
+        console.log("----------------");
+
+        //2) Write a program to convert radian to degree.
+        let radianInput = 30;
+        let degreeOutput = (radianInput * 180) / pi;
+        console.log(degreeOutput);
+        console.log("----------------");
+
+        //3) Write a program to calculate the area of a parallelogram.
+        // A = bh
+        let base = 20;
+        let height = 30;
+        let area = base * height;
+        console.log(area);
+        console.log("----------------");
+
+        //4) Write a program to calculate surface volume and area of a cylinder.
+        // cylinder's volume is π r² h, and its surface area is 2π r h + 2π r²
+        // input radius and height
+        let radius = 5;
+        let cylinderheight = 10;
+        let areaOfCylinder = 2 * pi * radius * cylinderheight + 2 * pi * (radius ** 2);
+        let volumeOfCylinder = pi * (radius ** 2) * cylinderheight;
+        console.log(areaOfCylinder);
+        console.log(volumeOfCylinder);
+        console.log("----------------");
+
+        // 5) Write a  program to calculate surface volume and area of a sphere.
+        // Surface Area = 4 × π × r2
+        // Volume = (4/3) × π × r3
+
+        let sphereRadius = 1.5;
+        let sphereArea = 4 * pi * (sphereRadius ** 2);
+        let sphereVolume = (4 / 3) * pi * (sphereRadius * sphereRadius * sphereRadius);
+        console.log(sphereArea);
+        console.log(sphereVolume);
+        console.log("----------------");
+
+        //6) Write a program to find the smallest multiple of a number except 1.
+        let multiplenum = 143;
+        for (let i = 2; i < multiplenum; i++) {
+            if (multiplenum % i == 0) {
+                console.log(i);
+                break;
+            }
+        }
+        console.log("----------------");
+
+        //7) Write a program to calculate the difference between the squared sum 
+        //of first n natural numbers and the sum of squared first n natural numbers.
+        console.log("----------------");
+
+        //8) Write a program to calculate the sum of all digits of a number.
+        let num = 123;
+        let sum = 0;
+        while (num > 0) {
+            let digit = num % 10;
+            sum += digit;
+            num = Math.floor(num / 10);
+        }
+        console.log(sum);
+        console.log("----------------");
+
+        //9) Write a program to returns sum of all divisors of a number.
+        let value1 = 125;
+        let value2 = 5;
+        let divisors = value1 / value2;
+        let result = 0;
+        while (divisors > 0) {
+            let divisordigit = divisors % 10;
+            result += divisordigit;
+            divisors = Math.floor(divisors / 10);
+        }
+        console.log(result);
+        console.log("----------------");
+
+        //10) Write a program to multiply two integers without using the * operator in javascript.
+        let int1 = 9;
+        let int2 = 3;
+        let intsum = 0;
+        for (let i = 1; i <= int2; i++) {
+            intsum += int1;
+        }
+        console.log(intsum);
+
+        console.log("----------------");
+        //10) Write a program to find value of pow(m, n) without using Math.pow function or ** operator.
+        let m = 11;
+        let n = 5;
+        let pow = 1;
+        for (let i = 1; i <= n; i++) {
+            pow *= m;
+        }
+        console.log(pow);
+        console.log("----------------");
+
+        //12) Write a program to calculate the distance between two points.
+        let x1 = 2;
+        let y1 = 3;
+        let x2 = 1;
+        let y2 = 2;
+        let sumOfTwoPoints = Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2);
+        let distance = Math.sqrt(sumOfTwoPoints);
+        console.log(distance);
+        console.log("----------------");
+
+        //13) Write a program to reverse the digits of a given integer.
+        let number = 123;
+        let newnumber = number.toString();
+        let reverse = newnumber.split("").reverse().join("");
+        console.log(reverse);
+
+        console.log("----------------");
+
+        //14) Write a program to check whether an integer is a palindrome or not.
+        // An integer is a palindrome when it reads the same forward as backward.
+        let palindromenum = 123321;
+        let newpalindromnum = palindromenum.toString();
+        let reversenum = newpalindromnum.split("").reverse().join("");
+        if (palindromenum == reversenum) {
+            console.log("Integer is a palindrome");
+        } else {
+            console.log("Integer is not a palindrome");
+        }
+        console.log("----------------");
+        //or
+        // for (let i = 0; i < newpalindromnum; i++) {
+        //     if (newpalindromnum.charAt(i) !== newpalindromnum.charAt(newpalindromnum.length - (i + 1))) {
+        //         console.log(false);
+        //     }
+        // }
+        // console.log(true);
+
+        //15) Write a program to divide two integers without using multiplication, division and mod operator.
+        let tem1 = 45;
+        let tem2 = 5;
+        let count = 0;
+        while (tem1 > 0) {
+            tem1 = tem1 - tem2;
+            count++;
+        }
+        console.log(count);
+    </script>
+</body>
+
+</html>
