@@ -1,0 +1,164 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>program</title>
+</head>
+
+<body>
+    <script>
+        /* Imagine you are writing a personal fitness program that stores the user's 
+        age, gender, height (in feet or meters), and weight (to the nearest pound or kilogram). 
+        Declare variables with the appropriate names and types to hold this information. 
+        Write a complete variable declaration statement with the type, the variable name, and a semicolon. */
+
+        var age = 45;
+        var gender = "Female";
+        var height = "5 feet 10 inches";
+        var weight = 110;
+        console.log(age, gender, height, weight);
+
+        /* Imagine you are writing a program that stores a student's year 
+        (Freshman, Sophomore, Junior, or Senior), the number of courses the student is taking, 
+        and his or her GPA on a 4.0 scale. Declare variables with the appropriate names and types 
+        to hold this information. Write a complete variable declaration statement with the type, 
+        the variable name, and a semicolon. */
+
+        var studentYear = "Sophomore";
+        var numberOfCourses = 4;
+        var GPA = 3.8;
+        console.log(studentYear, numberOfCourses, GPA);
+
+        //find last digit of a number
+
+        let number = 56437;
+        let latDigit = number % 10;
+        console.log(latDigit);
+
+        //find second-to-last digit (the 10s place) of a number
+        let num = 782243;
+        let newNum = Math.floor(num / 10)
+        let secondLatDigit = newNum % 10;
+        console.log(secondLatDigit);
+
+        //find third-to-last digit (the 100s place) of a number
+        let n = 368257;
+        let n1 = Math.floor(n / 100)
+        let thirdLatDigit = n1 % 10;
+        console.log(thirdLatDigit);
+
+        /* Rewrite following program to use assignment operators (e.g., +=, -=, *=, and /=) as appropriate.
+        var first = 8;
+        var second = 19;
+        first = first + second;
+        second = first - second;
+        first = first - second; */
+
+        var first = 8;
+        var second = 19;
+        first += second;
+        second = first - second;
+        first -= second;
+        console.log("first = " + first + " second =" + second);
+
+        // suppose real num x is defined write a program to solve equation;
+        // y = 12.3x^4 + 9.1x^3 + 19.3x^2 - 4.6x + 34.2
+
+        let x = 3;
+        let y = 12.3 * Math.pow(x, 4) + 9.1 * Math.pow(x, 3) + 19.3 * Math.pow(x, 2) - 4.6 * x + 34.2
+        console.log(y);
+
+        /* Write for loop program to produce the following output:
+        -4
+        14
+        32
+        50
+        68 */
+        let firstnum = -4;
+        for (let i = 0; i < 10; i++) {
+            console.log(firstnum);
+            firstnum += 18;
+        }
+
+        // s= s0 + v0t + 1/2 at^2
+
+        let s0 = 12.0;
+        let v0 = 3.5;
+        let a = 9.8;
+        let t = 10;
+        let s = s0 + v0 * t + (a * (t ** 2)) / 2;
+        console.log(s);
+
+        // for loop that produce
+        // 1 4 9 16 25 36 64 81 100
+        for (let i = 1; i <= 10; i++) {
+            console.log(i * i);
+        }
+
+        //Write a program to print first 12 Fibonacci numbers:
+        // 1 1 2 3 5 8 13 21 34 55 89 144
+    
+        for (let i = 1; i <= 5; i++) {
+            
+            
+        }
+        // write a loop produce following output
+        //1
+        //22
+        //333
+        //4444
+        //55555
+        //666666
+        //7777777
+        let result = "";
+        for (let i = 1; i <= 7; i++) {
+            for (let j = 1; j <= i; j++) {
+                result = result + i;
+            }
+            console.log(result);
+            result = "";
+        }
+
+
+        // write a nested for loop to produce 
+        //     1
+        //    22
+        //   333
+        //  4444
+        // 55555
+
+        let result1 = "";
+        for (let i = 1; i <= 5; i++) {
+            for (let j = 1; j <= 5; j++) {
+                if(i+j>5){
+                    result1 += i;
+                }else{
+                    result1 += " ";
+                }
+            }
+            console.log(result1);
+            result1 = "";
+        }
+
+
+        /* Write a nested for loop program which prints following output:
+        -----1-----
+        ----333----
+        ---55555---
+        --7777777--
+        -999999999-  */
+        for(let i=1; i<=9 ; i++){
+            for(let j=1; j<=11 ; j++){
+                if(i%2 == 0){
+                 
+                }else{
+                    
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
