@@ -13,10 +13,10 @@
         Declare variables with the appropriate names and types to hold this information. 
         Write a complete variable declaration statement with the type, the variable name, and a semicolon. */
 
-        var age = 45;
+        var age = 45; // years
         var gender = "Female";
-        var height = "5 feet 10 inches";
-        var weight = 110;
+        var height = 5 + 5/12; // {value} {unit} // {type} {value} // ft
+        var weight = 110; // pounds
         console.log(age, gender, height, weight);
 
         /* Imagine you are writing a program that stores a student's year 
@@ -75,10 +75,8 @@
         32
         50
         68 */
-        let firstnum = -4;
-        for (let i = 0; i < 10; i++) {
-            console.log(firstnum);
-            firstnum += 18;
+        for (let i = -4; i <= 68;i += 18) {
+            console.log(i);
         }
 
         // s= s0 + v0t + 1/2 at^2
@@ -98,10 +96,24 @@
 
         //Write a program to print first 12 Fibonacci numbers:
         // 1 1 2 3 5 8 13 21 34 55 89 144
-    
-        for (let i = 1; i <= 5; i++) {
-            
-            
+        // a = 1
+        // b = 1
+        // c = a + b
+        // a = b;
+        // b = c;
+        // c = a + b;
+        // a = b;
+        // b = c;
+        // c = a + b;
+        let a1 = 1;
+        let b = 1;
+        console.log(a1);
+        console.log(b);
+        for (let i = 3; i <= 12; i++) {
+            let c = a1 + b;
+            a1 = b;
+            b = c;
+          console.log(c);   
         }
         // write a loop produce following output
         //1
@@ -111,13 +123,12 @@
         //55555
         //666666
         //7777777
-        let result = "";
         for (let i = 1; i <= 7; i++) {
+            let result = "";
             for (let j = 1; j <= i; j++) {
                 result = result + i;
             }
             console.log(result);
-            result = "";
         }
 
 
@@ -127,9 +138,8 @@
         //   333
         //  4444
         // 55555
-
-        let result1 = "";
         for (let i = 1; i <= 5; i++) {
+            let result1 = "";
             for (let j = 1; j <= 5; j++) {
                 if(i+j>5){
                     result1 += i;
@@ -138,24 +148,39 @@
                 }
             }
             console.log(result1);
-            result1 = "";
         }
 
 
         /* Write a nested for loop program which prints following output:
-        -----1-----
-        ----333----
-        ---55555---
-        --7777777--
-        -999999999-  */
-        for(let i=1; i<=9 ; i++){
-            for(let j=1; j<=11 ; j++){
-                if(i%2 == 0){
-                 
-                }else{
+        -----1  -----
+        ----33  3----
+        ---555  55---
+        --7777  777--
+        -99999  9999-  */
+
+        // (j <= (i+1) /2) i else -
+        for(let i=1; i<=9 ; i = i+2){
+            let result = "";
+            for(let j=1; j<=6; j++){
+                if ((i/2) + j > 6) {
+                    // i 
+                    result += i;
                     
+                } else {
+                    // -
+                    result += "-";
+
                 }
             }
+            //console.log(result);
+            for(let j=2; j<=6 ; j++){
+                if(j <= (i+1)/2){
+                    result += i;
+                }else{
+                    result += "-";
+                }
+            }
+            console.log(result);
         }
     </script>
 

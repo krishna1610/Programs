@@ -1,0 +1,96 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+</head>
+
+<body>
+    <script>
+        //find last digit of a number
+        function lastDigit(number) {
+            return number % 10;
+        }
+        console.log(lastDigit(56437));
+        // Read a1   //56437
+        // CALL lastDigit 56437
+        // write number 56437
+        // read number //56437
+        // read a3 //10
+        // mod 56437, 10
+        // write a4, 7
+        // read a4
+        // return 7
+        // call console.log 7
+
+
+        //find second-to-last digit (the 10s place) of a number
+        function secondLastDigit(num) {
+            return Math.floor(num / 10) % 10;   
+        }
+        console.log(secondLastDigit(782243));
+
+
+        //find third-to-last digit (the 100s place) of a number
+        function thirdLastDigit(n) {
+            return Math.floor(n / 100) % 10;
+        }
+        console.log(thirdLastDigit(36778219));
+
+        // suppose real num x is defined write a program to solve equation;
+        // y = 12.3x^4 + 9.1x^3 + 19.3x^2 - 4.6x + 34.2
+        function solution(x) {
+            return 12.3 * Math.pow(x, 4) + 9.1 * Math.pow(x, 3) + 19.3 * Math.pow(x, 2) - 4.6 * x + 34.2
+        }
+        console.log(solution(3));
+
+        /* Write for loop program to produce the following output:
+        -4
+        14
+        32
+        50
+        68 */
+        function series(from, to, step ) {
+            for (let i = from; i <= to; i += step) {
+                console.log(i);
+            }
+            
+        }
+        series(-4, 68, 18);
+        series(4, 100, 15);
+
+        // s= s0 + v0t + 1/2 at^2
+        function findS(s0, v0, a, t) {
+            return s0 + v0 * t + (a * (t ** 2)) / 2;
+        }
+        let s0 = 12.0;
+        let v0 = 3.5;
+        let a = 9.8;
+        let t = 10;
+        console.log(findS(s0+1, v0, a, t));
+
+        // for loop that produce
+        // 1 4 9 16 25 36 64 81 100
+        function printSquOfSeries(from = 1, to = 10) {
+            for (let i = from; i <= to; i++) {
+                console.log(i * i);
+            }
+        }
+        printSquOfSeries();
+        printSquOfSeries(5);
+        printSquOfSeries(10,20);
+
+        function printUserFitnessValues(age, gender, height, weight){
+            console.log(age, gender, height, weight);
+        }
+        const gender = "Female";
+        const height = 5 + 5/12; // {value} {unit} // {type} {value} // ft
+        printUserFitnessValues(45, gender, height, 110);
+
+
+    </script>
+
+</body>
+
+</html>

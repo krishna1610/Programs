@@ -14,15 +14,31 @@
         // assume value of x is radius 
         let x = 10;
         let area = 3.14 * x * x;
-        console.log(area);
+        console.log(area); {
+            function areaOfCircle(radius) {
+                return Math.PI * radius * radius;
+            }
+            console.log(areaOfCircle(3));
+        }
+
+        // {inputs} --> operator --> output
 
         // find factorial of 5; 1x2x3x4x5
         let n = 5;
         let product = 1;
-        for (let i = 1; i <= n; i++) {
+        for (let i = 1; i <= n; i++) { // iterator, counter, step
             product = product * i;
         }
-        console.log(product);
+        console.log(product); {
+            function factorial(num) {
+                let product = 1;
+                for (let i = 1; i <= num; i++) { // iterator, counter, step
+                    product = product * i;
+                }
+                return product;
+            }
+            console.log(factorial(3));
+        }
 
         // check if given triangle is valid;
         // sum of two sides of triangle is greater than third side then triagle is valid 
@@ -33,12 +49,45 @@
             console.log("valid triangle");
         } else {
             console.log("invalid triangle");
+        } 
+
+        {
+            function checkValidTriangle(side1, side2, side3) {
+                if ((side1 + side2) > side3 && (side2 + side3) > side1 && (side1 + side3) > side2) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            console.log(checkValidTriangle(3,5,7));
+
         }
 
+        // chain
+        // inputs to A --> output from A is input to B --> output 
         //find first 20 prime numbers;
         // how to find a prime number 
+        // write a program which check if number is a prime number;
+        // Loop(i 0 ... < 20) -- Block(i) --> Block(prev i + 1) --> Block(prev i + 1)
+        {
+            let count = 1;
+            console.log(2);
+            for (let num = 3; count < 20; num = num + 2) {
+                let isPrime = true;
 
+                for (let div = 2; div < num; div++) {
+                    if (num % div == 0) {
+                        isPrime = false;
+                        break;
+                    }
+                }
 
+                if (isPrime) {
+                    console.log(num);
+                    count++;
+                }
+            }
+        }
         // input "25" as octa and "10001" as binary
         // Program: find sum of these 2 numbers in hexa 
 
@@ -49,7 +98,6 @@
         let octanum = "25";
         let binarynum = "10001";
         // convert 25 octa to decimal 
-
     </script>
 
 </body>
