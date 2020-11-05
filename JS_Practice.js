@@ -51,9 +51,16 @@ console.log("---------------------------");
 lines. For example, a call of vertical("hey now") should produce the following output:
 Note: Do not use split method on string instance. */
 function vertical(str) {
+    let vertical = "";
     for (let i = 0; i < str.length; i++) {
-        console.log(str.charAt(i));
+        if (i < str.length - 1) {
+            vertical += str.charAt(i) + "\n";
+        } else {
+            vertical += str.charAt(i);
+        }
+
     }
+    console.log(vertical);
 }
 vertical("hey now");
 console.log("---------------------------");
@@ -63,8 +70,8 @@ call printReverse("hello there!")
 Note: Do not use split method on string instance. */
 function printReverse(str) {
     let reverse = '';
-    for (let i = 0; i <= str.length; i++) {
-        reverse += str.charAt(str.length - i) + '';
+    for (let i = str.length - 1; i >= 0; i--) {
+        reverse += str.charAt(i);
     }
     return reverse;
 }
@@ -73,10 +80,11 @@ console.log("---------------------------");
 
 /* 13) Write a function called processName that accepts a String as a parameter and then prints the name in reverse order 
 (i.e., last name, first name). You may assume that only a first and last name will be given. */
-function processName(firstName, lastName) {
-    return lastName + ' ' + firstName;
+function processName(name) {
+    let strings = name.split(" ");
+    return strings[1] + " " + strings[0];
 }
-console.log(processName('Krishna', 'Bhadkoliya'));
+console.log(processName('Krishna Bhadkoliya'));
 console.log("---------------------------");
 
 /* 14) Write a function called printIndexed that accepts a String as its parameter and prints the String's characters in 
@@ -85,7 +93,7 @@ to the console. */
 function printIndexed(str) {
     let stringWithIndex = "";
     for (let i = 0; i < str.length; i++) {
-        stringWithIndex += str.charAt(i) + str.indexOf(str.charAt(str.length - (i + 1)));
+        stringWithIndex += str.charAt(i) + (str.length - (i + 1));
     }
     return stringWithIndex;
 
@@ -102,7 +110,9 @@ return false because none of those three numbers is larger than the sum of the o
 is negative. */
 
 function dominant(int1, int2, int3) {
-    return int1 + int2 < int3 || int2 + int3 < int1 || int1 + int3 < int2;
+    return ((int1 + int2) < int3) ||
+        ((int2 + int3) < int1) ||
+        ((int1 + int3) < int2);
 }
 console.log(dominant(4, 9, 2));
 console.log(dominant(5, 3, 7));
@@ -159,11 +169,14 @@ console.log("---------------------------");
 
 /* 29) Write a JavaScript function to check whether a string is blank or not. */
 function isBlank(str) {
-    return str == '';
+    return str.trim() == '';
 }
 console.log(isBlank(''));
-console.log(isBlank('abc'));
-console.log("---------------------------");
+console.log(isBlank('\n'));
+console.log(isBlank('\t'));
+console.log(isBlank(' '));
+console.log(isBlank(' abc '));
+console.log("29---------------------------");
 
 /* 30) Write a JavaScript function to extract a specified number of characters from a string. */
 function truncateString(str, num) {
@@ -209,7 +222,7 @@ function capitalizeWords(str) {
         capitalizeString += newStrings[i].charAt(0).toUpperCase() + newStrings[i].slice(1) + " ";
 
     }
-    return capitalizeString;
+    return capitalizeString.trim();
 
 }
 console.log(capitalizeWords('js string exercises'));
@@ -218,14 +231,13 @@ console.log("---------------------------");
 /* 37) Write a JavaScript function that takes a string which has lower and upper case letters as a parameter and converts upper 
 case letters to lower case, and lower case letters to upper case. */
 function swapcase(str) {
-    let characters = str.split("");
     let result = "";
-    for (let i = 0; i < characters.length; i++) {
-        if (characters[i] == characters[i].toUpperCase()) {
-            result += characters[i].toLowerCase();
-        } else {
-            result += characters[i].toUpperCase();
-        }
+    for (let i = 0; i < str.length; i++) {
+        // let x += condition ? value1 : value2 ;
+        result += (str.charAt(i) == str.charAt(i).toUpperCase()) ?
+            str.charAt(i).toLowerCase() :
+            str.charAt(i).toUpperCase();
+
     }
     return result;
 }
@@ -234,10 +246,10 @@ console.log("---------------------------");
 
 
 /* 38) Write a JavaScript function to convert a string into camel case. */
-function camelize(str){
+function camelize(str) {
     let newString = "";
     let splitStrings = str.split(" ");
-    for(let i=0; i<splitStrings.length; i++){
+    for (let i = 0; i < splitStrings.length; i++) {
         newString += splitStrings[i].charAt(0).toUpperCase() + splitStrings[i].slice(1);
     }
     return newString;
@@ -248,8 +260,8 @@ console.log(camelize("JavaScriptExercises"));
 console.log("---------------------------");
 
 /* 40) Write a JavaScript function to find a word within a string. */
-function searchWord(str, word){
-    return str.match(word) == word;
+function searchWord(str, word) {
+    return str.search(word) >= 0;
 }
 console.log(searchWord('The quick brown fox', 'fox'));
 console.log(searchWord('aa, bb, cc, dd, aa', 'ab'));
