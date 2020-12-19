@@ -36,3 +36,17 @@ function hello(){
 }
 hello();
 doPrint(hello);
+
+function printNumber(element, index, array) {
+    if (index > 0) {
+        array[index] = array[index - 1] * element;
+    }
+}
+
+function main() {
+    let arr = [2, 3, 4, 5];
+    let found = false;
+    arr.forEach(printNumber);
+    arr.forEach(function(element) { console.log(element) });
+    console.log(arr);
+}

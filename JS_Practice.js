@@ -129,7 +129,7 @@ function largestAbsVal(int1, int2, int3) {
 }
 function printlargestAbsVal(callback, int1, int2, int3){
     console.log('7-Answer-----', int1, int2, int3);
-    console.log(largestAbsVal(int1, int2, int3));
+    console.log(callback(int1, int2, int3));
     console.log('7-Answer-----End');
 }
 printlargestAbsVal(largestAbsVal, 7, -2, -11);
