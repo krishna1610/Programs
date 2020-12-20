@@ -19,6 +19,7 @@ class Range {
 const range = new Range(5,9);
 range.printRange();
 range.printPowersOfN(3);
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class Quadractic {
     constructor(a, b, c){
@@ -34,9 +35,10 @@ class Quadractic {
     }
 
 }
-
-let roots = new Quadractic(5,6,1);
+const roots = new Quadractic(5,6,1);
 roots.printRoots();
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+
 
 class Cylinder {
     constructor(radius, height){
@@ -52,6 +54,10 @@ class Cylinder {
         return Math.PI * this.radius * this.radius * this.height;
     }
 }
+const cylinder = new Cylinder(5,7);
+console.log(cylinder.surfaceArea());
+console.log(cylinder.volume());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class Sphere {
     constructor(radius){
@@ -66,6 +72,11 @@ class Sphere {
         return this.surfaceArea() * ((1/3) * this.radius);
     }
 }
+const sphere = new Sphere(6);
+console.log(sphere.volume());
+console.log(sphere.surfaceArea());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+
 
 class Triangle {
     constructor(a, b, c){
@@ -96,6 +107,11 @@ class Triangle {
     }
     
 }
+const triangle = new Triangle(5,5,7);
+console.log(triangle.area());
+console.log(triangle.perimeter());
+console.log(triangle.triangleType());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class Rectangle {
     constructor(length, width){
@@ -111,6 +127,10 @@ class Rectangle {
         return this.length * this.width;
     }
 }
+const rectangle = new Rectangle(7,8);
+console.log(rectangle.perimeter());
+console.log(rectangle.area());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class FractionSum {
     constructor(n){
@@ -125,6 +145,9 @@ class FractionSum {
         console.log(sum);
     }
 }
+const fractionsum = new FractionSum(6);
+fractionsum.print();
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class Month {
     constructor(month){
@@ -141,8 +164,11 @@ class Month {
     get daysInMonth(){
         return this._daysInMonth;
     }
-
 }
+const month = new Month(5);
+console.log(month.daysInMonth);
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+
 
 class Student {
     constructor(name, scores){
@@ -151,19 +177,29 @@ class Student {
     }
 
     gpa(){
+        if(this.scores.length === 0){
+            return `${this.name}'s grade is 0`;
+        }
         let sum = 0;
-        for(let num in this.scores){
+        for(let num of this.scores){
             sum += num;
         }
-        let average = sum / this.scores.length;
-
+        let average = (sum / this.scores.length).toFixed(2);
         return `${this.name}'s grade is ${average}`;
     }
 }
+const student = new Student('Krishna', [87,97,48,90,99,87]);
+console.log(student.gpa());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+
 
 class Stack {
     constructor(){
         this._items = [];
+    }
+
+    size(){
+        return this._items.length;
     }
 
     push(item){
@@ -171,17 +207,22 @@ class Stack {
     }
 
     pop(){
-        if(this._items.length === 0){
+        if(this.size() === 0){
             return 'EMPTY STACK';
         }else{
-            this._items.pop();
+            return this._items.pop();
         }
-    }
-
-    size(){
-        return this._items.length;
-    }
+    }    
 }
+const stack = new Stack();
+console.log(stack.size());
+stack.push(8);
+stack.push(9);
+stack.push(10);
+console.log(stack.pop());
+console.log(stack.size());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+
 
 class Queue {
     constructor(){
@@ -193,10 +234,10 @@ class Queue {
     }
 
     remove(){
-        if(this._items.length === 0){
+        if(this.size() === 0){
             return 'EMPTY STACK';
         }else{
-            this._items.shift(); 
+            return this._items.shift(); 
         }  
     }
 
@@ -204,6 +245,15 @@ class Queue {
         return this._items.length;
     }
 }
+const queue = new Queue();
+console.log(queue.size());
+console.log(queue.remove());
+queue.add(23);
+queue.add(19);
+queue.add(89);
+console.log(queue.remove());
+console.log(queue.size());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class Point {
     constructor(x, y){
@@ -224,12 +274,11 @@ class Point {
             return 4;
         }
     }
-    // how to return object 
+    
     flip(){
         let temp = this.x;
         this.x = -this.y;
         this.y = -temp;
-        return [this.x, this.y];
     }
 
     manhattanDistance(other){
@@ -253,6 +302,17 @@ class Point {
         && (this.slop(p2) === p1.slop(p2)));
     }
 }
+const point = new Point(3,4);
+console.log(point.quadrant());
+point.flip();
+console.log(point.quadrant());
+const point1 = new Point(9,5);
+console.log(point.manhattanDistance(point1));
+console.log(point.isVertical(point1));
+console.log(point.slop(point1));
+const point2 = new Point(7,8);
+console.log(point.isCollinear(point1, point2));
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class BinaryConverter {
     constructor(num){
@@ -260,7 +320,10 @@ class BinaryConverter {
     }
 
     toBinary(){
-        let str = '';
+        if(this.num === 0){
+            return '0';
+        }
+       let str = '';
        while(this.num > 0){
            str += this.num % 2;
            this.num = Math.floor(this.num / 2);
@@ -269,8 +332,10 @@ class BinaryConverter {
     }
 }
 
-let binaryConvertor = new BinaryConverter(13);
-console.log(binaryConvertor.toBinary());
+let convertor = new BinaryConverter(10);
+console.log(convertor.toBinary());
+console.log(convertor.toBinary());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class IndexedArray {
     constructor(arr){
@@ -305,7 +370,7 @@ class IndexedArray {
 let indexArr = new IndexedArray([4, 3, 5, 3, 6]);
 console.log(indexArr.indexOf(3));
 console.log(indexArr.lastIndexOf(3));
-
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class RangedArray{
     constructor(arr){
@@ -316,15 +381,19 @@ class RangedArray{
         return (this.maxValue - this.minValue) + 1;
     }
 }
+const rangearr = new RangedArray([5,8,9,18,29]);
+console.log(rangearr.range());
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
+
 
 class FrequencyArray {
     constructor(arr){
         let obj = {};
         for(let i=0; i<arr.length; i++){
             if(obj[arr[i]] === undefined){
-                obj[arr[i]] = [i];
+                obj[arr[i]] = 1;
             }else{
-                obj[arr[i]].push(i);
+                obj[arr[i]]++;
             }
         }
         this.freq = obj;
@@ -338,6 +407,10 @@ class FrequencyArray {
     }
 
 }
+const freq = new FrequencyArray([3,4,5,4,1,4,4,4]);
+console.log(freq.frequencyOf(9));
+console.log(freq.frequencyOf(4));
+console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class FastArray {
     constructor(arr){
@@ -353,4 +426,6 @@ class FastArray {
     }
    
 }
-
+const fastarr = new FastArray([2,8,6,10,4,6,8,9]);
+console.log(fastarr.kthLargest(2));
+console.log(fastarr.kthSmallest(3));
