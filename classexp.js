@@ -134,15 +134,13 @@ console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 class FractionSum {
     constructor(n){
-        this.n = n;
-    }
-
-    print(){
-        let sum = 0;
-        for(let i=1; i<=this.n; i++){
-            sum += (1/i);
+        this.sum = 0;
+        for(let i=1; i<=n; i++){
+            this.sum += (1/i);
         }
-        console.log(sum);
+    }
+    print(){
+        console.log(this.sum);
     }
 }
 const fractionsum = new FractionSum(6);
@@ -173,23 +171,25 @@ console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 class Student {
     constructor(name, scores){
         this.name = name;
-        this.scores = scores;
+        let sum = 0;
+        for(let num of scores){
+            sum += num;
+        }
+        if(scores.length > 0){
+            this.average = (sum / scores.length).toFixed(2);
+        }else{
+            this.average = 0;
+        }
     }
 
     gpa(){
-        if(this.scores.length === 0){
-            return `${this.name}'s grade is 0`;
-        }
-        let sum = 0;
-        for(let num of this.scores){
-            sum += num;
-        }
-        let average = (sum / this.scores.length).toFixed(2);
-        return `${this.name}'s grade is ${average}`;
+        return `${this.name}'s grade is ${this.average}`;
     }
 }
 const student = new Student('Krishna', [87,97,48,90,99,87]);
 console.log(student.gpa());
+const student1 = new Student("Pratik", []);
+console.log(student1.gpa());
 console.log("\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\");
 
 
@@ -324,9 +324,10 @@ class BinaryConverter {
             return '0';
         }
        let str = '';
-       while(this.num > 0){
-           str += this.num % 2;
-           this.num = Math.floor(this.num / 2);
+       let number = this.num;
+       while(number > 0){
+           str += number % 2;
+           number = Math.floor(number / 2);
        } 
        return str.split("").reverse().join("");
     }
